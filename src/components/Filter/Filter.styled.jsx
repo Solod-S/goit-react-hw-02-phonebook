@@ -22,7 +22,6 @@ export const InputForContactFilter = styled.input`
   transition: outline 250ms linear, color 250ms linear;
   :hover,
   :focus {
-    /* color: ${p => p.theme.colors.hoverBtnColor}; */
     outline: 1px solid ${p => p.theme.colors.hoverBtnColor};
   }
 `;
