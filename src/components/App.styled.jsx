@@ -22,14 +22,14 @@ export const MainAppHeader = styled.h1`
   font-family: ${p => p.theme.fontFamily.roboto};
   font-size: ${p => p.theme.fontSizes.l};
 
-  margin-bottom: ${p => p.theme.space[5]}px;
+  margin-bottom: ${p => p.theme.space[4]}px;
 `;
 export const AppHeader = styled.h2`
   color: ${p => p.theme.colors.primaryText};
   font-family: ${p => p.theme.fontFamily.roboto};
-  font-size: ${p => p.theme.fontSizes.m};
+  font-size: ${p => p.theme.fontSizes.l};
 
-  margin-bottom: ${p => p.theme.space[5]}px;
+  margin-bottom: ${p => p.theme.space[4]}px;
 `;
 export const AppImgLeft = styled.img`
   @media screen and (max-width: 950px) {
