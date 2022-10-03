@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import {
   ContactFilter,
@@ -23,3 +24,8 @@ const Filter = ({ value, onChange }) => {
   );
 };
 export default Filter;
+
+Filter.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};

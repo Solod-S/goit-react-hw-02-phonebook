@@ -23,7 +23,7 @@ class App extends React.Component {
     filter: '',
   };
   handleDataFromContactForm = data => {
-    console.log(data);
+    // console.log(data);
     this.creatingContact(data);
   };
   creatingContact = data => {
@@ -51,7 +51,7 @@ class App extends React.Component {
     );
   };
   onChangeFilter = event => {
-    console.log(event.currentTarget.value);
+    // console.log(event.currentTarget.value);
     this.setState({ filter: event.currentTarget.value });
   };
   deleteContact = ContactId => {

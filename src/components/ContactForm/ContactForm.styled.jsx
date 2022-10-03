@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-
-export const ContactsForm = styled.form`
+import { Form, Field, ErrorMessage } from 'formik';
+export const ContactsForm = styled(Form)`
   width: 70%;
   margin-bottom: ${p => p.theme.space[5]}px;
 `;
@@ -17,7 +17,7 @@ export const ItemsForContactsForm = styled.li`
     margin-bottom: ${p => p.theme.space[3]}px;
   }
 `;
-export const InputForContactsForm = styled.input`
+export const InputForContactsForm = styled(Field)`
   color: ${p => p.theme.colors.primaryText};
   font-family: ${p => p.theme.fontFamily.roboto};
   font-size: ${p => p.theme.fontSizes.m};
@@ -57,4 +57,9 @@ export const ButtonForContactsForm = styled.button`
     outline: 1px solid ${p => p.theme.colors.hoverBtnColor};
     transform: scale(1.1);
   }
+`;
+export const ErrorForContactsForm = styled(ErrorMessage)`
+  color: ${p => p.theme.colors.errorMsgColor};
+  font-family: ${p => p.theme.fontFamily.roboto};
+  font-size: ${p => p.theme.fontSizes.s};
 `;

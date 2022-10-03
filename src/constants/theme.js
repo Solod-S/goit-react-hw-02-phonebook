@@ -6,6 +6,7 @@ export const theme = {
     primaryText: '#1F3349',
     secondaryText: '#98A4AF',
     hoverBtnColor: 'red',
+    errorMsgColor: 'red',
   },
   spacing: value => `${4 * value}px`,
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
