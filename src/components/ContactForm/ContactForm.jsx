@@ -30,8 +30,12 @@ let schema = yup.object().shape({
 class ContactForm extends React.Component {
   state = { name: '', number: '' };
 
+  static propTypes = {
+    creatingContact: PropTypes.func.isRequired,
+  };
+
   handleSubmit = (values, actions) => {
-    this.props.handleDataFromContactForm(values);
+    this.props.creatingContact(values);
     // console.log(`values`, values);
     // console.log(`actions`, actions);
     actions.resetForm();
@@ -88,7 +92,7 @@ class ContactForm extends React.Component {
     );
   }
 }
-ContactForm.propTypes = {
-  handleDataFromContactForm: PropTypes.func.isRequired,
-};
+// ContactForm.propTypes = {
+//   creatingContact: PropTypes.func.isRequired,
+// };
 export default ContactForm;

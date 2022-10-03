@@ -22,10 +22,7 @@ class App extends React.Component {
     ],
     filter: '',
   };
-  handleDataFromContactForm = data => {
-    // console.log(data);
-    this.creatingContact(data);
-  };
+
   creatingContact = data => {
     const namesInContacts = this.state.contacts.map(contact => contact.name);
     if (namesInContacts.includes(data.name)) {
@@ -67,9 +64,7 @@ class App extends React.Component {
         <AppImgLeft src={image} />
         <AppSection>
           <MainAppHeader>Phonebook</MainAppHeader>
-          <ContactForm
-            handleDataFromContactForm={this.handleDataFromContactForm}
-          ></ContactForm>
+          <ContactForm creatingContact={this.creatingContact}></ContactForm>
           <AppHeader>Contacts</AppHeader>
           <Filter value={filter} onChange={this.onChangeFilter} />
           <ContactList
