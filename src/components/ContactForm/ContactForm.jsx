@@ -13,7 +13,7 @@ import {
   ErrorForContactsForm,
 } from './ContactForm.styled';
 const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
 let schema = yup.object().shape({
   name: yup
     .string()
@@ -22,10 +22,10 @@ let schema = yup.object().shape({
     .required(),
   number: yup
     .string()
-    .required('required')
-    .matches(phoneRegExp, 'That doesnt look like a phone number')
-    .min(3)
-    .max(15),
+    .required(`You need to type a number`)
+    .min(3, 'Too short')
+    .max(15, 'Too long')
+    .matches(phoneRegExp, 'That doesnt look like a phone number'),
 });
 class ContactForm extends React.Component {
   state = { name: '', number: '' };
