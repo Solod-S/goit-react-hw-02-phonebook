@@ -31,7 +31,7 @@ class App extends React.Component {
     } else {
       return this.setState({
         ...this.state,
-        // распыливаем все стейты которые были кроме контактов
+        // распыливаем все стейты которые были
         contacts: [
           ...this.state.contacts,
           // распыливаем все предведущии контакты
