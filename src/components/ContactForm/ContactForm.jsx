@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { ToastContainer, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   ContactsForm,
   ListForContactsForm,
@@ -87,6 +89,19 @@ class ContactForm extends React.Component {
           <ButtonForContactsForm type="submit">
             Add contact
           </ButtonForContactsForm>
+          <ToastContainer
+            transition={Flip}
+            theme="dark"
+            position="bottom-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable={false}
+            pauseOnHover
+          />
         </ContactsForm>
       </Formik>
     );

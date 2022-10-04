@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   AppHeader,
   MainAppHeader,
@@ -22,13 +24,37 @@ class App extends React.Component {
     ],
     filter: '',
   };
-
+  notify = toShown => {
+    if (toShown === 'addContact') {
+      return toast.success(' You have added contact!', {
+        position: 'bottom-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+      });
+    }
+    if (toShown === 'dellContact') {
+      return toast.warn('You have dellated the contact!', {
+        position: 'bottom-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+      });
+    }
+  };
   creatingContact = data => {
     const namesInContacts = this.state.contacts.map(contact => contact.name);
     if (namesInContacts.includes(data.name)) {
       alert(` ${data.name} is already in contacts`);
       // если имя из входящих данных === имени в любом имеющемся контакте выдаем ошибку
     } else {
+      this.notify('addContact');
       return this.setState({
         ...this.state,
         // распыливаем все стейты которые были
@@ -55,6 +81,7 @@ class App extends React.Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== ContactId),
     }));
+    this.notify('dellContact');
   };
   render() {
     const { filter } = this.state;
@@ -64,13 +91,13 @@ class App extends React.Component {
         <AppImgLeft src={image} />
         <AppSection>
           <MainAppHeader>Phonebook</MainAppHeader>
-          <ContactForm creatingContact={this.creatingContact}></ContactForm>
+          <ContactForm creatingContact={this.creatingContact} />
           <AppHeader>Contacts</AppHeader>
           <Filter value={filter} onChange={this.onChangeFilter} />
           <ContactList
             contacts={contactsToShow}
             onDeleteContact={this.deleteContact}
-          ></ContactList>
+          />
         </AppSection>
         <AppImgRigth src={image2} />
       </>

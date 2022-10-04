@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ToastContainer, Flip } from 'react-toastify';
+
 import {
   ItemsForContactsItem,
   NameForContactsItem,
@@ -14,6 +16,19 @@ const ContactItem = ({ name, number, onDeleteContact }) => {
       <ButtonForContactsItem type="button" onClick={onDeleteContact}>
         Delete
       </ButtonForContactsItem>
+      <ToastContainer
+        transition={Flip}
+        theme="dark"
+        position="bottom-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+      />
     </ItemsForContactsItem>
   );
 };
